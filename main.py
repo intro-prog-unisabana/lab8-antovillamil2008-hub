@@ -12,6 +12,11 @@ try:
     tareas=read_todo_file(ruta)
     if len(sys.argv)>2: 
         c=sys.argv[2]
+        if c=="view":
+            print("Tasks:")
+            for t in tareas:
+                print(t)
+        
 
 
 print("Command-line arguments:")
