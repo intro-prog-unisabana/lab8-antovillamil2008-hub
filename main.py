@@ -23,23 +23,22 @@ Commands:
         print("\nTasks:")
         for t in tareas:
             print(t)
-    
-    tareas=
-    if len(sys.argv)>2: 
-        c=sys.argv[2]
-        if c=="view":
+    if len(sys.argv)>2:
+        comando=sys.argv[2]
+        if comando=="view":
             print("Tasks:")
             for t in tareas:
                 print(t)
+        elif comando=="add":
+            pass
+        elif comando=="remove":
+            pass
+        else:
+            raise ValueError("Command not found!")
         
 
+    
 
-print("Command-line arguments:")
-for arg in sys.argv[1:]:
-    print(arg)
-print("Tasks")
-for t in tareas:
-    print(t)
 
 
     
