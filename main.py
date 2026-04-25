@@ -3,47 +3,20 @@
 # TODO: Implementar CLI según README.md
 import sys
 from todo_manager import read_todo_file, write_todo_file
-
-try: 
-    if len(sys.argv)<0:
-        raise IndexError("Insufficient arguments provided!")
-    
-    ruta=sys.argv[1]
-    tareas=read_todo_file(ruta)
-    if ruta=="--help":
-        print("""Usage: python main.py <file_path> <command> [arguments]...
+def main():
+    try: 
+        if len(sys.argv)<0:
+            raise IndexError("Insufficient arguments provided!")
+        if sys.argv[1]=="--help":
+             print("""Usage: python main.py <file_path> <command> [arguments]...
 Commands:
   add "task"    - Add a task to the list.
   remove "task" - Remove a task from the list.
-  view          - Display all tasks.""")
-        
-        print("Command-line arguments:")
-    for arg in sys.argv[1:]:
-        print(arg)
-        print("\nTasks:")
-        for t in tareas:
-            print(t)
-    if len(sys.argv)>2:
-        comando=sys.argv[2]
-        if comando=="view":
-            print("Tasks:")
-            for t in tareas:
-                print(t)
-        elif comando=="add":
-            pass
-        elif comando=="remove":
-            pass
-        else:
-            raise ValueError("Command not found!")
-        
-except IndexError as e:
-    print(e)
-except ValueError as e:
-    print(e)
-
+  view          - Display all tasks.
+Examples:
+  python main.py tasks.txt add "Buy groceries"
+  python main.py tasks.txt remove "Do laundry"
+  python main.py tasks.txt view
+  python main.py tasks.txt add "Call mom" remove "Take out trash" view""")
     
-    
-
-
-
-    
+   
