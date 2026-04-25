@@ -18,5 +18,14 @@ Examples:
   python main.py tasks.txt remove "Do laundry"
   python main.py tasks.txt view
   python main.py tasks.txt add "Call mom" remove "Take out trash" view""")
-    
-   
+             return
+    ruta=sys.argv[1]
+    tasks=read_todo_file(ruta)
+    contador=2
+    while contador<len(sys.argv):
+        comando=sys.argv[contador]
+
+        if comando=="view":
+            print("Tasks:")
+            for t in tasks:
+                print(t)
