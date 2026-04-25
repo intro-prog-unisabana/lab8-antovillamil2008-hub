@@ -36,7 +36,12 @@ Commands:
         else:
             raise ValueError("Command not found!")
         
+except IndexError as e:
+    print(e)
+except ValueError as e:
+    print(e)
 
+    
     
 
 
