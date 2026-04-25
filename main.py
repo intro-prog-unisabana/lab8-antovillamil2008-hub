@@ -29,3 +29,12 @@ Examples:
             print("Tasks:")
             for t in tasks:
                 print(t)
+            contador+=1
+        elif comando=="add":
+            if contador+1>=len(sys.argv):
+                raise IndexError("Task description required for "add".")
+            tarea_nueava=sys.argv[contador+1]
+            tasks.append(tarea_nueava)
+            print(f'Task "{new_task}" added.')
+            i += 2
+            
