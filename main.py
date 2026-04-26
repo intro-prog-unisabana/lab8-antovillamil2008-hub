@@ -19,22 +19,43 @@ Examples:
   python main.py tasks.txt view
   python main.py tasks.txt add "Call mom" remove "Take out trash" view""")
              return
-    ruta=sys.argv[1]
-    tasks=read_todo_file(ruta)
-    contador=2
-    while contador<len(sys.argv):
-        comando=sys.argv[contador]
+        ruta=sys.argv[1]
+        tasks=read_todo_file(ruta)
+        contador=2
+        while contador<len(sys.argv):
+            comando=sys.argv[contador]
 
-        if comando=="view":
-            print("Tasks:")
-            for t in tasks:
-                print(t)
-            contador+=1
-        elif comando=="add":
-            if contador+1>=len(sys.argv):
-                raise IndexError("Task description required for "add".")
-            tarea_nueava=sys.argv[contador+1]
-            tasks.append(tarea_nueava)
-            print(f'Task "{new_task}" added.')
-            i += 2
-            
+            if comando=="view":
+                print("Tasks:")
+                for t in tasks:
+                    print(t)
+                contador+=1
+            elif comando=="add":
+                if contador+1>=len(sys.argv):
+                    raise IndexError("Task description required for "add".")
+                tarea_nueava=sys.argv[contador+1]
+                tasks.append(tarea_nueava)
+                print(f'Task "{tarea_nueava}" added.')
+                contador += 2
+            elif comando == "remove":
+                if contador + 1 >= len(sys.argv):
+                    raise IndexError('Task description required for "remove".')
+                remover=sys.argv[contador+1]
+                if remover in tasks:
+                 tasks.remove(remover)
+                 print(f"Task {remover} removed.")
+                else:
+                 print(f'Task "{remover}" not found.')
+                contador += 2
+            else:
+                raise ValueError("Command not found!")
+        if len(sys.argv)>2:
+             write_todo_file(ruta, tasks)
+    
+    except (IndexError, ValueError) as e:
+        print(e)
+
+
+if __name__ == "__main__":
+    main()
+    
