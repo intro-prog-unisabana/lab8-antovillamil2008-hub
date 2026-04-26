@@ -33,7 +33,6 @@ Examples:
                 print("Tasks:")
                 for t in tasks:
                     print(t)
-                    
                 i += 1  
 
             elif comando == "add":
