@@ -55,6 +55,8 @@ Examples:
                     print(f'Task "{remover}" removed.')
                 else:
                     print(f'Task "{remover}" not found.')
+
+                i += 2  # ← Esto falta
         
             else:
                 raise ValueError("Command not found!")
